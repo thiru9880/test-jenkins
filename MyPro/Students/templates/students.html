@@ -1,0 +1,83 @@
+{% load static %}
+
+<body>
+  {% include "header.html" %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+			    <h4 align="center" style="color: ivory;">Student Details</h4>
+          <table style="color: ivory;"> 
+            <tr>
+              <th>First_name</th>
+              <th>Last_name</th>
+              <th>Mail_id</th>
+              <th>Phone</th>
+              <th>Gender</th>
+              <th>DOB</th>
+              <th>Surname</th>
+              <th>Address</th>
+              <th>Action</th>
+              <th>Action</th>
+            </tr>
+            {%for students in items%}
+            <tr>
+              <td>{{students.first_name}}</td>
+              <td>{{students.last_name}}</td>
+              <td>{{students.mail}}</td>
+              <td>{{students.phone}}</td>
+              <td>{{students.gender}}</td>
+              <td>{{students.dob}}</td>
+              <td>{{students.surname}}</td>
+              <td>{{students.address}}</td>
+              <td><button type="button"> Edit </button></td>
+              <td><button type="button"> Delete </button></td>
+            </tr>
+            {%endfor%}
+          </table>
+        </div>
+      </div>
+    </div>
+    <style>
+
+      .button {
+  background-color: #e7e7e7;
+  border: none;
+  color: black;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 1px 1px;
+  cursor: pointer;
+}
+</style>
+
+
+
+     <div class="pagination">
+      <span class="step-links">
+        {% if items.has_previous %}
+            <button><a href="?page=1" class="button">&laquo; first</a></button>
+          <button><a href="?page={{ items.previous_page_number }}" class="button">previous</a></button>  
+        {% endif %}
+
+        <span class="current">
+            Page {{ items.number }} of {{ items.paginator.num_pages }}.
+        </span>
+
+        {% if items.has_next %}
+            <button><a href="?page={{ items.next_page_number }}" class="button">next</a></button>
+            <button><a href="?page={{ items.paginator.num_pages }}" class="button">last &raquo;</a></button>
+        {% endif %}
+      </span>
+    </div>
+      
+      
+  </section><!-- End Hero -->
+  {% include "footer.html" %}
+</body>

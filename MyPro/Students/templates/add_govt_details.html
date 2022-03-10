@@ -1,0 +1,82 @@
+{% load static %}
+<body>
+  {% include "header.html" %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+			<br><br>
+			<h3 align="center" style="color: ivory;">Enter Governament ID Details</h3>
+			<form method="POST" action='/add_govtId/'  enctype="multipart/form-data">
+				{% csrf_token %}
+				<input type="hidden" name="Mail" value="{{student_mail}}">
+				<table style="color: ivory;">
+					<tr>
+						<td><label for="ID_type"><b>ID_Type</b></label></td>
+						<td><input type="text" name="Id_type"></td>
+					</tr>
+					<tr>
+						<td>ID_Number</td>
+						<td><input type="text" placeholder="Enter ID_Number" name="Id_num"></td>
+					</tr>
+					<tr>
+						<td><label for="image"><b>Image</b></label></td>
+						<td><input type="file" name="Image"></td>
+					</tr>
+					<tr>
+						<td>
+							Want to add more?
+						</td>
+						<td>
+							<input type="checkbox" name="Add_More" value="Add_New">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="Reset" style="background-color:#dc8c66">
+						</td>
+						<td>
+							<input type="Submit" style="background-color:#1cb0c3;" value="Next">
+						</td>
+					</tr>
+				</table>
+			</form>
+        </div>
+      </div>
+    </div>
+
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
+
+  </section><!-- End Hero -->
+  {% include "footer.html" %}
+</body>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student_Details Form</title>
+</head>
+<body>
+	
+
+</body>
+</html>
